@@ -1,6 +1,5 @@
 '''import boto3
 import json
-from utils.slack_alert import send_slack_alert
 
 
 def is_public_acl(grants):
@@ -52,8 +51,6 @@ def check_public_s3_buckets():
                 if policy_status:
                     print(f"   ➤ {policy_status}")
 
-                    # ✅ 2. Send Slack alert here
-                    send_slack_alert(f"🔴 S3 Bucket '{name}' is PUBLIC!")
             else:
                 print(f"✅ Bucket '{bucket_name}' is private")
 
@@ -66,7 +63,6 @@ if __name__ == "__main__":
 
 import boto3
 import json
-from utils.slack_alert import send_slack_alert
 
 def check_public_s3_buckets():
     s3 = boto3.client("s3")
@@ -86,7 +82,7 @@ def check_public_s3_buckets():
             if is_public:
                 print(f"🔴 Bucket '{bucket_name}' is PUBLIC!")
                 print("   ➤ Policy Public (Allows * access)")
-                send_slack_alert(f"🔴 S3 Bucket '{bucket_name}' is PUBLIC!")
+            
 
             else:
                 print(f"✅ Bucket '{bucket_name}' is private")
