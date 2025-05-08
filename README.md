@@ -81,8 +81,8 @@ cloud-misconfig-scanner/
 │   │   └── [7 misconfigs]/main.tf
 │   └── secure/
 │       └── [7 remediations]/main.tf
-├── README.md
 └── requirements.txt
+README.md
 ```
 
 ## 🚀 Getting Started
